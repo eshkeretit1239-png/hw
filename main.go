@@ -24,13 +24,13 @@ if firstV == "rub" && secondV == "usd"{
 	fmt.Printf("%.2f rub\n", usdAfterConvertrub)
 } else if firstV == "usd" && secondV == "eur"{
 	var usdAfterConverteur float64 = float64(quantity)*(convertUsdtToEur)
-	fmt.Printf("%.2f rub\n", usdAfterConverteur)
+	fmt.Printf("%.2f eur\n", usdAfterConverteur)
 } else if firstV == "eur" && secondV == "rub"{
-	var eurAfterConvertrub float64 = float64(quantity)*(1/convertRubinEur)
-	fmt.Printf("%.2f eur\n", eurAfterConvertrub)
+	var eurAfterConvertrub float64 = float64(quantity)*(convertRubinEur)
+	fmt.Printf("%.2f rub\n", eurAfterConvertrub)
 }  else if firstV == "eur" && secondV == "usd"{
-	var eurAfterConvertusd float64 = float64(quantity)*(convertUsdtToEur)
-	fmt.Printf("%.2f rub\n", eurAfterConvertusd)
+	var eurAfterConvertusd float64 = float64(quantity)*(1/convertUsdtToEur)
+	fmt.Printf("%.2f usd\n", eurAfterConvertusd)
 }  
 
 fmt.Println("Хотите ли продолжит?")
@@ -65,7 +65,7 @@ fmt.Println("Ведите число больше ноля")
 fmt.Println("целевую валюту")
 for{ 
 	fmt.Scanln(&secondV)
-if secondV == "usd" || secondV == "eur" || secondV == "rub"{
+if strings.ToLower(secondV) == "usd" || strings.ToLower(secondV) == "rub" || strings.ToLower(secondV) == "eur"{
 break
 }else{
 fmt.Printf("ошипка")
